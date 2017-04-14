@@ -48,8 +48,7 @@ elif opcioni=="KENO":
 
 
 
-   asfsdfdsfdsfsdfsdfsdfsdfsdfsdfsdf
-
+  
 
 
 
