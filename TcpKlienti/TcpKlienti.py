@@ -52,4 +52,4 @@ elif opcioni=="KENO":
 
 
 
-sdsd
+
