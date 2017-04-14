@@ -49,6 +49,6 @@ elif opcioni=="KENO":
 
 
   
-asdsdasadasdasdads
+
 
 
