@@ -32,7 +32,7 @@ def getKeno():
     keno=[randint(0,80) for i in range (0,20)]
     for n in range(20):
         return keno
-        
+       #palidhje diqka 
 
          
 mesazhiIP =str(getIP())
