@@ -32,13 +32,38 @@ def getKeno():
     keno=[randint(0,80) for i in range (0,20)]
     for n in range(20):
         return keno
-       #palidhje diqka 
-
+        
+#funksioni per opcionin konverto 
+def konverto(opcioni,numri):
+    if opcioni==b"CelsiusToKelvin":
+        kelvin = 273.15 +numri
+        return kelvin
+    elif opcioni == b"CelsiusToFahrenheit":
+        fahrenheit = 32 + (numri*9/5)
+        return fahrenheit
+    elif opcioni == b"KelvinToFahrenheit":
+        fahrenheit = (numri*9/5)-459.67
+        return fahrenheit
+    elif opcioni == b"KelvinToCelsius": 
+          celsius = numri - 273.15
+          return celsius
+    elif opcioni == b"FahrenheitToCelsius":
+        celsius = (numri -32)*5/9
+        return celsius
+    elif opcioni == b"FahrenheitToKelvin":
+        kelvin = (numri + 459.67) *5/9
+        return kelvin
+    elif opcioni == b"PoundToKilogram":
+        kilogram = numri*0.45359237
+        return kilogram
+    elif opcioni == b"KilogramToPound":
+        pound = numri/0.45359237
+        return pound
          
 mesazhiIP =str(getIP())
 mesazhiPORT = str(serverPort)
 mesazhiHOST = str(getHOST())
-meszhinull = "Invalid"
+mesazhinull = "Invalid"
 mesazhiKoha=str(getTime())
 mesazhiKeno=str(getKeno())
 
@@ -60,7 +85,13 @@ while 1:
         connectionSocket.send(mesazhiKoha.encode('ASCII'))
     elif (opcioni==b"KENO"):
         connectionSocket.send(mesazhiKeno.encode('ASCII'))
+    #pjesa per konverto
+    elif b"TO" in capitalizedOpcioni:
+        opcioni,numri=opcioni.split(b' ') 
+        numri1=int(numri)
+        mesazhiKONVERTO=str(konverto(opcioni,numri1))
+        connectionSocket.send(mesazhiKONVERTO.encode('ASCII'))
+
     else:
         connectionSocket.send(mesazhinull.encode('ASCII'))
     connectionSocket.close()
-
